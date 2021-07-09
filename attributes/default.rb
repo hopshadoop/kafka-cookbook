@@ -45,6 +45,11 @@ default['kkafka']['dir'] = node['install']['dir'].empty? ? "/opt" : node['instal
 
 default['kkafka']['install_dir'] = "#{node['kkafka']['dir']}/kafka"
 
+# Data volume directories
+default['kkafka']['data_volume']['root_dir']     = "#{node['data']['dir']}/kafka"
+default['kkafka']['data_volume']['app_log_dir']  = "#{node['kkafka']['data_volume']['root_dir']}/logs"
+default['kkafka']['data_volume']['logs_dir']     = "#{node['kkafka']['data_volume']['root_dir']}/kafka-logs"
+
 #
 # Directory where to install *this* version of Kafka.
 # For actual default value see `_defaults` recipe.
